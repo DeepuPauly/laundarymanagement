@@ -1,0 +1,46 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+<center>
+    <div class="hero__caption">
+    <h1>assign to staff</h1>
+</div>
+    <form method="post">
+        <table class="table" style="width: 500px;color: white">
+        <tr>
+            <th>Staff Name</th>
+            <td><select name="staff" class="form-control" required>
+                <option>-----Select-----</option>
+                {%for i in data['viewstaff']%}
+                <option value="{{i['staff_id']}}">{{i['firstname']}}</option>
+                {%endfor%}
+            </select></td>
+        </tr>
+        <tr>
+            <th>Pickedup date & time</th>
+            <td><input type="datetime-local" class="form-control" name="date"></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input type="submit" name="submit" class="btn btn-success"></td>
+        </tr>
+    </tabe>
+</form>
+</center>
+
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+{%include 'footer.html'%}

@@ -1,0 +1,43 @@
+{%include 'userheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+<center>
+	<div class="hero__caption">
+	<h1>Shop</h1>
+</div>
+	<table class="table" style="width: 1200px;color: black">
+        <tr class="table-info">
+			<th>Shop Name</th>
+			<th>Address</th>
+			<th>Pincode</th>
+			<th>Phone</th>
+			<th>Email</th> 
+		</tr>
+		{%for i in data['viewshop']%}
+		<tr class="table-light">
+			<td>{{i['shopname']}}</td>
+			<td>{{i['place']}}</td>
+			<td>{{i['pincode']}}</td>
+			<td>{{i['phone']}}</td>
+			<td>{{i['email']}}</td>
+            <td><a class="btn btn-success" href="userviewservices?shopid={{i['shop_id']}}">Services</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+{%include 'footer.html'%}

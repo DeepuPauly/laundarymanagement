@@ -1,0 +1,57 @@
+{%include 'adminheader.html'%}
+
+<!-- <div style="margin-bottom: 1em; background:url('static/assets/img/gallery/row.jpg'); height:300px; width: 100%; background-size: cover;"> -->
+ <cener>
+  <div class="hero__caption">
+    <h1>Bookings</h1>
+    </div>
+  </cener>
+<!-- </div> -->
+<!-- <main> -->
+  <!--? slider Area Start-->
+  <!-- <section class="slider-area hero-overly">
+      <div class="slider-active"> -->
+          <!-- Single Slider -->
+          <!-- <div class="single-slider slider-height d-flex align-items-center">
+              <div class="container">
+                  <div class="row"> -->
+<CENTER>
+
+    <table>
+{%if data['viewbookedservice']%}
+       <div class="row justify-content-between">
+{%for i in data['viewbookedservice']%}
+<div class="card" style="width: 30rem;box-shadow: 10px 10px #869793;position: static;">
+    <div class="card-body">
+      <h5 class="card-title">{{i['service']}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Cloth Type:{{i['clothtype']}}</h6>
+      <p class="card-text">Service name: {{i['shopname']}}</p>
+      <p class="card-text">Service charge: {{i['rate']}}</p>
+      <p class="card-text">Cloth material charge: {{i['price']}}</p>
+      <p class="card-text">Quantity: {{i['quantity']}}</p>
+      <p class="card-text">Booking status: {{i['statuss']}}</p>
+      <p class="card-text">Total Ammount: {{i['ammount']}}</p>
+      {%if i['statuss']=='paid'%}
+      <a class="btn btn-success" href="adminviewpayment?bookingmasterid={{i['bookingmaster_id']}}" class="card-link">View Payment</a>
+      {%endif%}
+      <a class="btn btn-success" href="adminviewuserdetails?bookingmasterid={{i['bookingmaster_id']}}" class="card-link">User Details</a>
+    </div>
+  </div>
+{%endfor%}
+</div>
+
+{%else%}
+<h1>Ooops. Booking is Empty</h1>
+{%endif%}
+
+
+<!-- </div>
+</div>
+</div> -->
+<!-- </div>          
+</div>
+</div>
+</section> -->
+
+
+{%include 'footer.html'%}

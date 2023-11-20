@@ -1,0 +1,61 @@
+{%include 'userheader.html'%}
+
+<main>
+  <!--? slider Area Start-->
+  <section class="slider-area hero-overly">
+      <div class="slider-active">
+          <!-- Single Slider -->
+          <div class="single-slider slider-height d-flex align-items-center">
+              <div class="container">
+                  <div class="row">
+
+<CENTER>
+  <div class="hero__caption">
+    <h1>My Bookings</h1>
+  </div>
+    <table>
+{%if data['viewbookedservice']%}
+       <div class="row justify-content-center">
+{%for i in data['viewbookedservice']%}
+<div class="card" style="width: 25rem;box-shadow: 10px 10px #869793;padding-block-start: 10px;height: fit-content;">
+    <div class="card-body">
+      <h3 class="card-title">{{i['service']}}</h53>
+      <p class="card-text">Cloth Type:{{i['clothtype']}}</p>
+      <p class="card-text">Service name: {{i['shopname']}}</p>
+      <p class="card-text">Service charge: {{i['rate']}}</p>
+      <p class="card-text">Cloth material charge: {{i['price']}}</p>
+      <p class="card-text">Quantity: {{i['quantity']}}</p>
+      <p class="card-text">Booking status: {{i['statuss']}}</p>
+      {%if data['viewbookedservice'][0]['statuss']=='assigned'%}
+      <a class="btn btn-success" href="userviewpickedupdetails?bookingmasterid={{data['viewbookedservice'][0]['bookingmaster_id']}}" class="card-link">Pickedup Details</a>
+      {%endif%}
+
+
+    </div>
+  </div>
+{%endfor%}
+</div>
+</table>
+</CENTER>
+<div style="width:90%;">
+<table> 
+    {% if data['viewbookedservice'][0]['statuss']=='pending'%}
+    <tr style="align-items: center;">
+        <td><a class="btn btn-success" href="?cancel={{data['viewbookedservice'][0]['bookingmaster_id']}}">Cancel</a></td>
+        <td ><a class="btn btn-success" href="usermakepayment?totalammount={{data['viewbookedservice'][0]['ammount']}}&bookingmasterid={{data['viewbookedservice'][0]['bookingmaster_id']}}">Payment</a></td>
+    </tr>
+    {%endif%}
+</table>
+</div>
+{%else%}
+<h1>Ooops. Your booking is Empty</h1>
+{%endif%}
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+{%include 'footer.html'%}

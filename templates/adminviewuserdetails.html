@@ -1,0 +1,43 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+<center>
+    <h1>User Details</h1>
+    <table class="table" style="width: 1200px;color: black">
+        <tr class="table-info">
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Place</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+
+        {%for i in data['adminviewuserdetails']%}
+
+        <tr class="table-light">
+            <td>{{i['firstname']}}</td>
+            <td>{{i['lastname']}}</td>
+            <td>{{i['place']}}</td>
+            <td>{{i['phone']}}</td>
+            <td>{{i['email']}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+{%include 'footer.html'%}

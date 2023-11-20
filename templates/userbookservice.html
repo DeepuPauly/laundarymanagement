@@ -1,0 +1,100 @@
+{% include 'userheader.html' %}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+<script type="text/javascript">
+    function TextOnTextChange() {
+        var x = document.getElementById("p_amount").value;
+        var y = document.getElementById("p_qnty").value;
+        var z = document.getElementById("clothAmount").value;
+
+        // Convert x, y, and z to numbers before performing the calculation
+        x = parseFloat(x) || 0;
+        y = parseFloat(y) || 0;
+        z = parseFloat(z) || 0;
+
+        document.getElementById("amount").value = x * y + z;
+    }
+</script>
+<center>
+    <div class="hero__caption">
+    <h1>Book Service</h1>
+</div>
+    <form method="post">
+        <table class="table" style="width: 500px;color: white">
+            <tr>
+                <th>Service</th>
+                <td><input type="text" name="service" class="form-control" readonly value="{{data['hu'][0]['service']}}"></td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td><input type="text" name="amount" class="form-control" id="p_amount" readonly value="{{data['hu'][0]['rate']}}"></td>
+            </tr>
+            <tr>
+                <th>Cloth Type</th>
+                <td>
+                    <select name="clothtype" id="clothType" class="form-control" required>
+                        <option>---Select---</option>
+                        {% for i in data['pe'] %}
+                            <option value="{{ i['clothtype_id'] }}">{{ i['clothtype'] }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Cloth Price</th>
+                <td><input type="text" name="clothprice" id="clothAmount"  class="form-control" readonly></td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td><input type="date" name="date" class="form-control" placeholder="Enter date" required></td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td><input type="text" name="quantity" id="p_qnty"  placeholder="Enter quantity" onchange="TextOnTextChange()" class="form-control" required></td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td><input type="text" name="total" id="amount" class="form-control" readonly></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="submit" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#clothType').change(function(){
+            var selectedClothId = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '/get_cloth_amount',
+                data: {cloth_type_id: selectedClothId},
+                success: function(data) {
+                    $('#clothAmount').val(data.amount);
+                }
+            });
+        });
+    });
+</script>
+
+{% include 'footer.html' %}

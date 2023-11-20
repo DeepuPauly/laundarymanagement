@@ -1,0 +1,52 @@
+{%include 'shopheader.html'%}
+
+<main>
+  <!--? slider Area Start-->
+  <!-- <section class="slider-area hero-overly">
+      <div class="slider-active"> -->
+          <!-- Single Slider -->
+          <!-- <div class="single-slider slider-height d-flex align-items-center">
+              <div class="container">
+                  <div class="row"> -->
+
+<CENTER>
+  <div class="hero__caption">
+    <h1><b>Bookings</b> </h1>
+  </div>
+    <table>
+{%if data['viewbookedservice']%}
+       <div class="row justify-content-center">
+{%for i in data['viewbookedservice']%}
+<div class="card" style="width: 18rem;box-shadow: 10px 10px #869793;">
+    <div class="card-body">
+      <h5 class="card-title">{{i['service']}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Cloth Type:{{i['clothtype']}}</h6>
+      <!-- <p class="card-text">Service name: {{i['shopname']}}</p> -->
+      <p class="card-text">Service charge: {{i['rate']}}</p>
+      <p class="card-text">Cloth material charge: {{i['price']}}</p>
+      <p class="card-text">Quantity: {{i['quantity']}}</p>
+      <!-- <p class="card-text">Booking status: {{i['statuss']}}</p> -->
+      <!-- <p class="card-text">Total Ammount: {{i['ammount']}}</p> -->
+      {%if i['statuss']=='paid'%}
+      <a class="btn btn-success" href="shopviewpayment?bookingmasterid={{i['bookingmaster_id']}}" class="card-link">View Payment</a>
+      <a class="btn btn-success" href="shopassignbooking?bookingmasterid={{i['bookingmaster_id']}}" class="card-link">Assign</a>
+      {%endif%}
+      <br>
+      <br>
+      <a class="btn btn-success" href="shopviewuserdetails?bookingmasterid={{i['bookingmaster_id']}}" class="card-link">User Details</a>
+    </div>
+  </div>
+{%endfor%}
+</div>
+
+{%else%}
+<h1>Ooops.  Booking is Empty</h1>
+{%endif%}
+<!-- </div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section> -->
+{%include 'footer.html'%}

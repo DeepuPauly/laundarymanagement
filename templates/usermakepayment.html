@@ -1,0 +1,84 @@
+{%include 'userheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+<style type="text/css">
+    td{background-color: transparent;font-weight: 2px;color: rgb(2, 2, 2)}
+    hr{border-color: orange}
+    #b {
+        border: 1px solid grey; 
+        padding: 10px;
+    }
+    
+    </style>
+<div align="center">
+    <center> 
+        <form method="post">
+
+            <h2 style="color: rgb(0, 0, 0);"> Payment </h2><br>
+    
+            <table style="width: 500px; border-radius: 5px;" class="table table-borderless" id="b"> 
+                <tr> 
+                    <td>PAYMENT DETAILS</td> 
+                    <td colspan="2" align="right"><img src="payment.jpeg" style="width:70%"></td>
+                </tr>  
+                <tr> 
+                    <td colspan="2"> <small>CARD NUMBER</small><br> 
+                        <input type="text" placeholder="Card number"  class="form-control" required pattern="[0-9]{16}" maxlength="16" title="Enter 16 digit CARD NUMBER number">
+                    </td> 
+                </tr>
+                <tr> 
+                    <td > <small>CVV</small><br> 
+                        <input type="text" placeholder="CVV"  class="form-control" required pattern="[0-9]{3}" maxlength="3" title="Enter 3 digit CV number">
+                    </td> 
+                    <td> <small>EXPIRATION DATE</small><br> 
+                        <input type="text" placeholder="MM/YY"  class="form-control" required pattern="[0-9,/]{5}" maxlength="5" name="edate" title="Enter month and year"> 
+                    </td>
+                </tr>
+                <tr> 
+                    <td colspan="2"> <small>CARD HOLDER</small><br> 
+                        <input type="text" placeholder="Name on card" pattern="[A-Za-z ]+$"  class="form-control" data-valid='only-text' required > 
+                    </td>
+                </tr>
+                <!-- <tr> 
+                    <td colspan="2" >
+                        <h6>Service Charge : {{pr}}</h6>
+                
+                        <h6>Amount : {{total}}</h6>
+                    </td>
+                </tr> -->
+                <tr> 
+                    <td colspan="2" >
+                        <h6 style="color: rgb(0, 0, 0);font-size: 1em;"> Total :{{data['payment'][0]['ammount']}}</h6>
+                    </td>
+                </tr>
+                <tr> 
+                    <td> 
+                        <input type="submit" value="PAY"  class="btn btn-success" style="width: 100%" name="submit">
+    
+    
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+{%include 'footer.html'%}
+
+
+

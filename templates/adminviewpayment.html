@@ -1,0 +1,41 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+<center>
+    <h1>payment Details</h1>
+    {% if data['adminviewpayment']%}
+    <table class="table" style="width: 1200px;color: black">
+        <tr class="table-info">
+        <th>Sl No.</th>
+        <th>Ammount</th>
+        <th>Date</th>
+        </tr>
+
+        {%for i in data['adminviewpayment']%}
+        <tr class="table-light">
+            <tr>{{loop.index}}</tr>
+            <tr>{{i['total']}}</tr>
+            <tr>{{i['date']}}</tr>
+        </tr>
+        {%endfor%}
+    </table>
+    {%else%}
+    <h1>Oops.No payments</h1>
+    {%endif%}
+</center>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+{%include 'footer.html'%}

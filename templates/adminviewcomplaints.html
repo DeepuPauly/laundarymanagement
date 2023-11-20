@@ -1,0 +1,45 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+<center>
+    <div class="hero__caption">
+    <h1>Complaints</h1>
+</div>
+<table class="table" style="width: 1200px;color: black">
+    <tr class="table-info">
+            <th>Sl.No</th>
+            <th>Complaints</th>
+            <th>Replys</th>
+            <th>Date</th>
+        </tr>
+        {%for i in data['complaint']%}
+        <tr class="table-light">
+            <td>{{loop.index}}</td>
+            <td>{{i['complaint']}}</td>
+            <td>{{i['replay']}}</td>
+            <td>{{i['date']}}</td>
+            {%if i['replay']=='pending'%}
+            <td><a class="btn btn-success" href="adminsendcomplaintreply?complaint={{i['complaint_id']}}">Reply</a></td>
+            {%endif%}
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+{%include 'footer.html'%}

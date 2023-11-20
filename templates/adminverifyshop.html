@@ -1,0 +1,59 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-xl-7 col-lg-9 col-md-10 col-sm-9">
+                            <div class="hero__caption"> -->
+
+<center>
+	<div class="hero__caption">
+	<h1 >VERIFY SHOPS</h1>
+</div>
+	<table class="table" style="width: 1200px;color: black">
+		<tr class="table-info">
+			<th>Sl No.</th>
+			<th>Shop Name</th>
+			<th>Address</th>
+			<th>Pincode</th>
+			<th>Phone</th>
+			<th>Email</th>
+		
+		</tr>
+		{%for i in data['verifyshop']%}
+		<tr class="table-light">
+			<td>{{loop.index}}</td>
+			<td>{{i['shopname']}}</td>
+			<td>{{i['place']}}</td>
+			<td>{{i['pincode']}}</td>
+			<td>{{i['phone']}}</td>
+			<td>{{i['email']}}</td>
+			{%if i.status=='pending'%}
+			<td><a class="btn btn-success" href="?action=accept&login_id={{i['login_id']}}">Accept</a></td>
+			<td><a class="btn btn-danger" href="?action=reject&login_id={{i['login_id']}}">Reject</a></td>
+			{%else%}
+			<td><a class="btn btn-danger" href="?action=reject&login_id={{i['login_id']}}">Reject</a></td>
+			{%endif%}
+            {%if i.status=='reject'%}
+            <td><a class="btn btn-success" href="?action=accept&login_id={{i['login_id']}}">Accept</a></td>
+            {%endif%}
+		</tr>
+		{%endfor%}
+	</table>
+</center>
+
+<!-- </div>
+</div> -->
+	</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+{%include 'footer.html'%}

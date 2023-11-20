@@ -1,0 +1,100 @@
+{%include 'shopheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+<center>
+    <div class="hero__caption">
+    <h1>staff registration</h1>
+</div>
+   <form method="post">
+       
+       <table class="table" style="width: 500px;color: white">
+           <tr>
+               <th>FRIST NAME</th>
+               <td><input type="text" name="firstname" class="form-control" placeholder="Enter first name" pattern="[a-zA-Z]+$" required=""></td>
+           </tr>
+           <tr>
+               <th>LAST NAME</th>
+               <td><input type="text" name="lastname" class="form-control" placeholder="Enter last name" pattern="[a-zA-Z]+$" required=""></td>
+           </tr>
+           <tr>
+            <th>PLACE</th>
+            <td><input type="text" name="place" class="form-control" pattern="[a-zA-Z]+$" placeholder="Enter place"  required=""></td>
+        </tr>
+           <tr>
+               <th>PHONE</th>
+               <td><input type="text" name="phone" maxlength="10" class="form-control" placeholder="Enter phone number" pattern="[0-9]{10}" required=""></td>
+           </tr>
+
+           <tr>
+               <th>EMAIL</th>
+               <td><input type="email" name="email" class="form-control" placeholder="Enter email" required="" id="em"><span id="msg" style="color:red;">Invalid Email</span></td>
+           </tr>
+           <tr>
+           <th>DESIGINATION</th>
+           <td><input type="text" name="desigination" class="form-control" placeholder="Enter desigination" required=""></td>
+           </tr>
+           <tr>
+               <th>USER NAME</th>
+               <td><input type="text" name="username" class="form-control" placeholder="Enter user name" required=""></td>
+           </tr>
+           <tr>
+               <th>PASSWORD</th>
+               <td><input type="password" name="password" class="form-control" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required=""></td>
+           </tr>
+           <tr>
+               <td align="center" colspan="2"><input type="submit" name="submit" value="SUBMIT" class="btn btn-success"></td>
+           </tr>
+       </table>
+
+   </form>
+</center>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+<script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+// $("#btn").hide();
+      $("#msg").hide();
+$(document).on("change","#em",function(){
+var email=$(this).val();
+if (validateEmail(email)) {
+// alert("Email is valid");
+$("#btn").show();
+$("#msg").hide();
+
+} else {
+// alert("Email is not valid");
+$("#msg").show();
+$("#btn").hide();
+}
+});
+
+});
+    function validateEmail() {
+    
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+var email=document.getElementById("em").value;
+// Test the email against the regex
+return emailRegex.test(email);
+
+
+}
+</script>
+
+{%include 'footer.html'%}

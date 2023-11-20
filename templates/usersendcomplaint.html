@@ -1,0 +1,63 @@
+{%include 'userheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+<center>
+	<div class="hero__caption">
+	<h1>complaints</h1>
+	</div>
+	<form method="post">
+		<table class="table" style="width: 500px;color: white">
+		<tr>
+			<th>Complaint</th>
+			<td><input type="textbox" class="form-control" required placeholder="Enter Complaint" name="complaint"></td>
+		</tr>
+        <tr>
+            <th>Date</th>
+            <td><input type="date" name="date" class="form-control" placeholder="Select date" required></td>
+        </tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" value="SUBMIT" name="submit"></td>
+		</tr>
+	</table>
+	</form>
+</center>
+
+
+
+<center>
+	<table class="table" style="width: 1200px;color: black">
+        <tr class="table-info">
+			<th>Sl No.</th>
+			<th>Complaints</th>
+			<th>Reply</th>
+			<th>Date</th>
+		</tr>
+        {%for i in data['complaint']%}
+        <tr class="table-light">
+            <td>{{loop.index}}</td>
+            <td>{{i['complaint']}}</td>
+            <td>{{i['replay']}}</td>
+            <td>{{i['date']}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+{%include 'footer.html'%}

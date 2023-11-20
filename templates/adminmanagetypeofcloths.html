@@ -1,0 +1,88 @@
+{%include 'adminheader.html'%}
+
+<main>
+    <!--? slider Area Start-->
+    <section class="slider-area hero-overly">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+
+{%if data['updates']%}
+<center>
+    <div class="hero__caption">
+    <h1>Manage Cloths</h1>
+</div>
+    <form method="post">
+        <table class="table" style="width: 500px;color: white">
+            <tr>
+                <th>Cloth Type</th>
+                <td><input type="text" name="clothtype" class="form-control" value="{{data['updates'][0]['clothtype']}}" required></td>
+            </tr>
+            <tr>
+                <th>Rate</th>
+                <td><input type="text" name="rate" class="form-control" value="{{data['updates'][0]['price']}}" required></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" value="SUBMIT" name="update" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+{%else%}
+
+<center>
+    <div class="hero__caption">
+    <h1>manage cloths</h1>
+</div>
+    <form method="post">
+        <table class="table" style="width: 500px;color: white">
+            <tr>
+                <th>Cloth Type</th>
+                <td><input type="text" name="clothtype" value="Enter cloth type" class="form-control" required></td>
+            </tr>
+            <tr>
+                <th>Rate</th>
+                <td><input type="text" name="rate" value="Enter rate" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="submit" value="SUBMIT" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+{%endif%}
+<center>
+    <table class="table" style="width: 1200px;color: black">
+        <tr class="table-info">
+            <th>Sl.No</th>
+            <th>Cloth Type</th>
+            <th>Rate</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {%for i in data['clothtype']%}
+        <tr class="table-light">
+            <td>{{loop.index}}</td>
+            <td>{{i['clothtype']}}</td>
+            <td>{{i['price']}}</td>
+            <td><a class="btn btn-danger" href="?action=update&cid={{i['clothtype_id']}}">Update</a></td>
+            <td><a class="btn btn-danger" href="?action=delete&cid={{i['clothtype_id']}}">Delete</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+
+
+</div>
+</div>
+</div>
+</div>          
+</div>
+</div>
+</section>
+
+{%include 'footer.html'%}
